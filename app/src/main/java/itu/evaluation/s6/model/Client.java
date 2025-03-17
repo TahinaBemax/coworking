@@ -1,10 +1,12 @@
 package itu.evaluation.s6.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import org.antlr.v4.runtime.misc.NotNull;
+import jakarta.validation.constraints.NotNull;
+import lombok.Getter;
+import lombok.Setter;
 @Entity
-@Data
+@Setter
+@Getter
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,7 +14,24 @@ public class Client {
     Integer id;
 
     @Column(name = "numero_tel", nullable = false, unique = true)
-    @NotNull()
+    @NotNull
     //Pattern(regexp = "^(\\+261|0)(\\d{8})$", message = "Numéro de téléphone malgache invalide")
     String numeroTel;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNumeroTel() {
+        return numeroTel;
+    }
+
+    public void setNumeroTel(String numeroTel) {
+        this.numeroTel = numeroTel;
+    }
+
 }
