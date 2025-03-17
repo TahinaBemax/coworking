@@ -17,6 +17,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.OrRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -33,13 +35,14 @@ public class SecurityConfiguration {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(registry -> {
-                    registry.requestMatchers("/admin/**").hasAnyRole("USER", "ADMIN");
+                    registry.requestMatchers("/login", "/admin/login", "/css/**", "/js/**", "/images/**").permitAll();
+                    registry.requestMatchers("/admin/**").hasRole( "ADMIN");
                     registry.requestMatchers("/coworking/**").hasRole("USER");
                     registry.anyRequest().authenticated();
                     })
                 .formLogin(adminLogin -> adminLogin
                         .loginPage("/admin/login")
-                        .defaultSuccessUrl("/dashboards", true)
+                        .defaultSuccessUrl("/admin/dashboard", true)
                         .failureUrl("/admin/login?error=true")
                         .loginProcessingUrl("/admin/authentication")
                         .permitAll()
@@ -47,10 +50,18 @@ public class SecurityConfiguration {
                 // Ajout du filtre personnalisé pour le login Client
                 .addFilterBefore(new ClientAuthenticationFilter(authenticationManager), UsernamePasswordAuthenticationFilter.class)
                 .logout(logout -> logout
-                        .logoutUrl("/logout")
-                        .logoutSuccessUrl("/login?logout=true")
+                        .logoutRequestMatcher(new OrRequestMatcher(
+                                new AntPathRequestMatcher("/admin/logout"),
+                                new AntPathRequestMatcher("/logout")
+                        ))
+                        .logoutSuccessHandler((request, response, authentication) -> {
+                            if (request.getRequestURI().startsWith("/admin")) {
+                                response.sendRedirect("/admin/login?logout=true");
+                            } else {
+                                response.sendRedirect("/login?logout=true");
+                            }
+                        })
                 )
-                .logout(logout -> logout.logoutUrl("/admin/logout").logoutSuccessUrl("/admin/login?logout=true"))
                 .build();
     }
 
