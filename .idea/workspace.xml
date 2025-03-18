@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="edb0c86f-bd31-4bbe-9a3e-fe553d16c957" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f988d5d6-e8a9-4e95-b5df-028d320b23ae.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f988d5d6-e8a9-4e95-b5df-028d320b23ae/storage_v2/_src_/database/coworking.RY0BvA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f988d5d6-e8a9-4e95-b5df-028d320b23ae/storage_v2/_src_/database/coworking.RY0BvA/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f988d5d6-e8a9-4e95-b5df-028d320b23ae/storage_v2/_src_/database/coworking.RY0BvA/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/f988d5d6-e8a9-4e95-b5df-028d320b23ae/storage_v2/_src_/database/coworking.RY0BvA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/itu/evaluation/s6/controller/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/itu/evaluation/s6/controller/ImportCsvController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/itu/evaluation/s6/csvdto/OptionCSV.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/itu/evaluation/s6/repository/OptionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/itu/evaluation/s6/service/ImportCsvService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/static/css/import_csv.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/templates/fragments/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/templates/fragments/navbar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/templates/importCsv/import_csv.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/coworking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/coworking.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/itu/evaluation/s6/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/itu/evaluation/s6/config/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/itu/evaluation/s6/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/itu/evaluation/s6/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/itu/evaluation/s6/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/itu/evaluation/s6/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/templates/admin-login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/templates/login/admin-login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/resources/templates/user-login.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/templates/login/user-login.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2uLZUW72SIG9vN62Dypsde6M0ym" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/TahinaBemax/Desktop/Evaluation S6/EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025/coworking/app/src/main/resources/public",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.4632184",
+    "spring.configuration.checksum": "4a1011a79e1236bfda3f69abfaeb961d",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TahinaBemax\Desktop\Evaluation S6\EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025\coworking\app\src\main\resources\public" />
+      <recent name="C:\Users\TahinaBemax\Desktop\Evaluation S6\EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025\coworking\app\src\main\resources\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TahinaBemax\Desktop\Evaluation S6\EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025\coworking\app\src\main\resources\templates\login" />
+      <recent name="C:\Users\TahinaBemax\Desktop\Evaluation S6\EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025\coworking\app\src\main\resources\static\" />
+      <recent name="C:\Users\TahinaBemax\Desktop\Evaluation S6\EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025\coworking\app\src\main\resources\templates\error" />
+      <recent name="C:\Users\TahinaBemax\Desktop\Evaluation S6\EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025\coworking\app\src\main\resources\static" />
+      <recent name="C:\Users\TahinaBemax\Desktop\Evaluation S6\EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025\coworking\app\src\main\resources\public.error" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="PrepaEvalutationS6Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Prepa_evalutation_S6" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="itu.evaluation.s6.PrepaEvalutationS6Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="edb0c86f-bd31-4bbe-9a3e-fe553d16c957" name="Changes" comment="" />
+      <created>1742029837578</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742029837578</updated>
+      <workItem from="1742029837889" duration="280000" />
+      <workItem from="1742188908045" duration="6770000" />
+      <workItem from="1742196349719" duration="5492000" />
+      <workItem from="1742207222286" duration="11796000" />
+      <workItem from="1742274923402" duration="668000" />
+      <workItem from="1742275839937" duration="7920000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/itu/evaluation/s6/service/UtilisateurDetailService.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
