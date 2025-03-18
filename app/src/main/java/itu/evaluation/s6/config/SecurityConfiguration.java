@@ -39,7 +39,7 @@ public class SecurityConfiguration {
                     registry.requestMatchers("/admin/**").hasRole( "ADMIN");
                     registry.requestMatchers("/coworking/**").hasRole("USER");
                     registry.anyRequest().authenticated();
-                })
+                    })
                 .formLogin(adminLogin -> adminLogin
                         .loginPage("/admin/login")
                         .defaultSuccessUrl("/admin/dashboard", true)
