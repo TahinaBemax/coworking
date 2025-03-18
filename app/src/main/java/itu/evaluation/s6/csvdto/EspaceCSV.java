@@ -10,19 +10,14 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class OptionCSV {
-    @CsvBindByName(column = "code")
+public class EspaceCSV {
+    @CsvBindByName(column = "nom")
     @NotNull(message = "{champ.notNull}")
     @NotBlank()
-    @UniqueValue(message = "Le code option doit étre unique!")
-    String code;
+    @UniqueValue(message = "Le nom de l'espace doit étre unique!")
+    String nom;
 
-    @CsvBindByName(column = "option")
-    @NotNull(message = "{prix.notNull}")
-    @NotBlank(message = "{champ.notNull}")
-    String option;
-
-    @CsvBindByName(column = "prix")
+    @CsvBindByName(column = "prix_heure")
     @Min(value = 0, message = "{prix.positiveOrZero}")
     double prix;
 }

@@ -1,5 +1,6 @@
 package itu.evaluation.s6.controller;
 
+import itu.evaluation.s6.exception.ImportCsvException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -19,5 +20,10 @@ public class GlobalExceptionHandler {
     public ResponseEntity<?> exceptionHandler(Exception e){
         Exception Exception = new Exception("Une erreur interne s'est produite! \n" + e.getMessage());
         return new ResponseEntity<>(Exception, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(ImportCsvException.class)
+    public ResponseEntity<?> exceptionHandler(ImportCsvException e){
+        return new ResponseEntity<>(e, HttpStatus.BAD_REQUEST);
     }
 }

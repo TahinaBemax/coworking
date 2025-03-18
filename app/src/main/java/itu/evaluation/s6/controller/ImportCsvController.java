@@ -1,18 +1,16 @@
 package itu.evaluation.s6.controller;
 
-import itu.evaluation.s6.model.Option;
+import itu.evaluation.s6.dto.ImportationCsvDto;
+import itu.evaluation.s6.exception.ImportCsvException;
+import itu.evaluation.s6.exception.TableNameNotFoundException;
 import itu.evaluation.s6.service.ImportCsvService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -24,13 +22,28 @@ public class ImportCsvController {
     }
 
     @GetMapping("/uploads")
-    public String importationPage(){
+    public String importationPage(Model model){
+        model.addAttribute("ImportationCsvDto", new ImportationCsvDto());
         return "importCsv/import_csv";
     }
 
-    @PostMapping("/uploads/option")
-    public ResponseEntity<?> uploadOption(@RequestParam("file") MultipartFile file) throws IOException {
-        List<Option> options = importCsvService.uploadOptionsData(file);
-        return new ResponseEntity<>("Data option téléversé", HttpStatus.OK);
+    @PostMapping("/uploads")
+    public String upload(@Validated
+                                   @ModelAttribute("ImportationCsvDto") ImportationCsvDto importationCsvDto, BindingResult bindingResult, Model model) throws IOException {
+        try {
+            if (bindingResult.hasErrors()){
+                return "importCsv/import_csv";
+            }
+
+            importCsvService.uploadCsvData(importationCsvDto);
+            model.addAttribute("success", "Fichier csv importé avec succés");
+        } catch (ImportCsvException e) {
+            model.addAttribute("error", e.getMessages());
+        } catch (TableNameNotFoundException e) {
+            model.addAttribute("error", e.getMessage());
+        }
+
+        return importationPage(model);
     }
+
 }
