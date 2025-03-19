@@ -2,20 +2,19 @@ package itu.evaluation.s6.service;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-import itu.evaluation.s6.csvdto.EspaceCSV;
-import itu.evaluation.s6.csvdto.OptionCSV;
-import itu.evaluation.s6.dto.ImportationCsvDto;
+import itu.evaluation.s6.csv.csvdto.EspaceCSV;
+import itu.evaluation.s6.csv.csvdto.OptionCSV;
+import itu.evaluation.s6.csv.csvdto.ReservationCSV;
+import itu.evaluation.s6.csv.ImportCsvServiceDependence;
+import itu.evaluation.s6.csv.csvdto.ImportationCsvDto;
 import itu.evaluation.s6.exception.ImportCsvException;
 import itu.evaluation.s6.exception.TableNameNotFoundException;
-import itu.evaluation.s6.model.Espace;
-import itu.evaluation.s6.model.Option;
-import itu.evaluation.s6.model.Paiement;
-import itu.evaluation.s6.model.Reservation;
-import itu.evaluation.s6.repository.EspaceRepository;
-import itu.evaluation.s6.repository.OptionRepository;
+import itu.evaluation.s6.model.*;
+import itu.evaluation.s6.repository.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,12 +32,19 @@ public class ImportCsvService {
     private final OptionRepository optionRepository;
     private final Validator validator;
     private final EspaceRepository espaceRepository;
+    private final ClientRepository clientRepository;
+    private final ReservationRepository reservationRepository;
+    private final PaiementRepository paiementRepository;
+
 
     @Autowired
-    public ImportCsvService(OptionRepository optionRepository, Validator validator, EspaceRepository espaceRepository) {
-        this.optionRepository = optionRepository;
-        this.validator = validator;
-        this.espaceRepository = espaceRepository;
+    public ImportCsvService(ImportCsvServiceDependence dependence) {
+        this.optionRepository = dependence.getOptionRepository();
+        this.validator = dependence.getValidator();
+        this.espaceRepository = dependence.getEspaceRepository();
+        this.clientRepository = dependence.getClientRepository();
+        this.reservationRepository = dependence.getReservationRepository();
+        this.paiementRepository = dependence.getPaiementRepository();
     }
 
     private <T> List<T> parseCSVFile(MultipartFile file, Class<T> type, String separator) throws IOException {
@@ -113,6 +119,30 @@ public class ImportCsvService {
 
         return espaceSet.stream().toList();
     }
+    private List<Reservation> prepareReservationData(MultipartFile file, String separator) throws IOException, ImportCsvException {
+        List<Client> clients = this.clientRepository.findAll();
+        List<ReservationCSV> reservationCSV =  parseCSVFile(file, ReservationCSV.class, separator);
+        List<ReservationCSV> reservationCSVList = this.validateDataCsv(reservationCSV);
+
+        List<Reservation> reservations = new ArrayList<>();
+
+        for (ReservationCSV espace : reservationCSVList) {
+            Reservation temporaire = new Reservation();
+
+            temporaire.setReference(espace.getRef());
+            temporaire.setDateReservation(espace.getDateReservation());
+            temporaire.setHeureDebut(espace.getHeureDebut());
+            temporaire.setHeureFin(espace.getHeureDebut().plusHours(espace.getDuree()));
+            temporaire.setClient(this.extractClientFromReservationCSV(clients, espace));
+            temporaire.setEspace(this.extractEspaceFromReservationCSV(espace));
+            temporaire.setPrixEspace(temporaire.getEspace().getPrix());
+            temporaire.setOptions(this.extractOptionFromReservationCSV(espace));
+
+            reservations.add(temporaire);
+        }
+
+        return reservations;
+    }
 
 
     private List<Option> uploadOptionsData(MultipartFile file, String separator) throws IOException, ImportCsvException {
@@ -126,11 +156,12 @@ public class ImportCsvService {
     private List<Paiement> uploadPaiementData(MultipartFile file, String separator) {
         return null;
     }
-    private List<Reservation> uploadReservationData(MultipartFile file, String separator) {
-        return null;
+    private List<Reservation> uploadReservationData(MultipartFile file, String separator) throws ImportCsvException, IOException {
+        List<Reservation> reservations = this.prepareReservationData(file, separator);
+        return this.reservationRepository.saveAll(reservations);
     }
 
-    @Transactional
+    @Transactional(rollbackOn = {IOException.class, ImportCsvException.class})
     public List<?> uploadCsvData(ImportationCsvDto info) throws ImportCsvException, IOException, TableNameNotFoundException {
         return switch (info.getTableName().toLowerCase()) {
             case "option" -> this.uploadOptionsData(info.getFile(), info.getSeparator());
@@ -142,4 +173,44 @@ public class ImportCsvService {
     }
 
 
+    private Client extractClientFromReservationCSV(List<Client> clients, ReservationCSV reservationCSV){
+        if(clients.stream().noneMatch(c -> c.getNumeroTel().equals(reservationCSV.getNumeroTel()))){
+            Client c = new Client();
+            c.setNumeroTel(reservationCSV.getNumeroTel());
+            c =  clientRepository.save(c);
+            clients.add(c);
+            return c;
+        }
+
+        return clients
+                .stream()
+                .filter(c -> c.getNumeroTel().equals(reservationCSV.getNumeroTel()))
+                .findFirst()
+                .orElseThrow();
+    }
+    private Set<Option> extractOptionFromReservationCSV(ReservationCSV reservationCSV){
+        List<Option> options = this.optionRepository.findAll();
+        Set<Option> filtredOptions = new HashSet<>();
+
+        @NotNull(message = "{champ.notNull}") List<String> codes = reservationCSV.getOption();
+
+        for (Option option : options) {
+            for (String code : codes) {
+                if (option.getId().equalsIgnoreCase(code))
+                    filtredOptions.add(option);
+            }
+        }
+
+        return filtredOptions;
+    }
+    private Espace extractEspaceFromReservationCSV(ReservationCSV reservationCSV){
+        List<Espace> espaces = this.espaceRepository.findAll();
+
+        for (Espace espace : espaces) {
+            if (espace.getNom().equalsIgnoreCase(reservationCSV.getEspaceName()))
+                return espace;
+        }
+
+        return null;
+    }
 }

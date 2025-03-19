@@ -1,4 +1,4 @@
-package itu.evaluation.s6.csvdto;
+package itu.evaluation.s6.csv.csvdto;
 
 import com.opencsv.bean.CsvBindByName;
 import itu.evaluation.s6.validation.annotation.UniqueValue;

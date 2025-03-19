@@ -1,7 +1,7 @@
-/*
 package itu.evaluation.s6.model;
 
 import itu.evaluation.s6.embedId.EspaceStatutId;
+import itu.evaluation.s6.embedId.OptionReservationId;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -12,12 +12,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Table(name = "statut_espace")
-public class EspaceStatut {
+@Table(name = "option_reservation")
+public class OptionReservation {
     @EmbeddedId
-    EspaceStatutId id;
-
-    @NotNull
-    LocalDateTime updatedAt;
+    OptionReservationId id;
 }
-*/

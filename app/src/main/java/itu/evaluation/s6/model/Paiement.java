@@ -1,5 +1,6 @@
 package itu.evaluation.s6.model;
 
+import itu.evaluation.s6.enums.PaiementStatut;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -46,5 +47,6 @@ public class Paiement {
     Reservation reservation;
 
     @Transient
-    StatutPaiement statutPaiement;
+    @Enumerated(EnumType.STRING)
+    PaiementStatut statutPaiement;
 }

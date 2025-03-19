@@ -1,6 +1,6 @@
 package itu.evaluation.s6.controller;
 
-import itu.evaluation.s6.dto.ImportationCsvDto;
+import itu.evaluation.s6.csv.csvdto.ImportationCsvDto;
 import itu.evaluation.s6.exception.ImportCsvException;
 import itu.evaluation.s6.exception.TableNameNotFoundException;
 import itu.evaluation.s6.service.ImportCsvService;

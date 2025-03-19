@@ -1,4 +1,4 @@
-package itu.evaluation.s6.dto;
+package itu.evaluation.s6.csv.csvdto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
