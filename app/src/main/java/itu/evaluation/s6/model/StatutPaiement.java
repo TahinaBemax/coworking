@@ -1,3 +1,4 @@
+/*
 package itu.evaluation.s6.model;
 
 import itu.evaluation.s6.embedId.EspaceStatutId;
@@ -17,3 +18,4 @@ public class StatutPaiement {
     @NotNull
     LocalDateTime updatedAt;
 }
+*/

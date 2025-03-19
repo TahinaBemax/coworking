@@ -1,5 +1,6 @@
 package itu.evaluation.s6.model;
 
+import itu.evaluation.s6.enums.PaiementStatut;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -33,8 +34,8 @@ public class Paiement {
     @Column(name = "ref_paiement")
     String refPaiement;
 
-    @Column(name = "validated_at")
-    LocalDateTime validatedAt;
+    @Column(name = "updated_at")
+    LocalDateTime updatedAt;
 
     @NotNull(message = "{champ.notNull}")
     @Column(name = "admin_username")
@@ -45,6 +46,7 @@ public class Paiement {
     @NotNull(message = "{champ.notNull}")
     Reservation reservation;
 
-    @Transient
-    StatutPaiement statutPaiement;
+    @Column(name = "statut")
+    @Enumerated(EnumType.STRING)
+    PaiementStatut statutPaiement;
 }

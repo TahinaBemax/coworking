@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 @Data
 public class Option {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "code_option")
     String id;
 

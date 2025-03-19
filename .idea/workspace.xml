@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="edb0c86f-bd31-4bbe-9a3e-fe553d16c957" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2uLZUW72SIG9vN62Dypsde6M0ym" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/TahinaBemax/Desktop/Evaluation S6/EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025/coworking/app/src/main/resources/public&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4632184&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;4a1011a79e1236bfda3f69abfaeb961d&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\TahinaBemax\Desktop\Evaluation S6\EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025\coworking\app\src\main\resources\public" />
+      <recent name="C:\Users\TahinaBemax\Desktop\Evaluation S6\EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025\coworking\app\src\main\resources\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TahinaBemax\Desktop\Evaluation S6\EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025\coworking\app\src\main\resources\templates\login" />
+      <recent name="C:\Users\TahinaBemax\Desktop\Evaluation S6\EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025\coworking\app\src\main\resources\static\" />
+      <recent name="C:\Users\TahinaBemax\Desktop\Evaluation S6\EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025\coworking\app\src\main\resources\templates\error" />
+      <recent name="C:\Users\TahinaBemax\Desktop\Evaluation S6\EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025\coworking\app\src\main\resources\static" />
+      <recent name="C:\Users\TahinaBemax\Desktop\Evaluation S6\EVALUATION-STAGE–P15-DS2–J2-28 Janvier-2025\coworking\app\src\main\resources\public.error" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="PrepaEvalutationS6Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Prepa_evalutation_S6" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="itu.evaluation.s6.PrepaEvalutationS6Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="edb0c86f-bd31-4bbe-9a3e-fe553d16c957" name="Changes" comment="" />
+      <created>1742029837578</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742029837578</updated>
+      <workItem from="1742029837889" duration="280000" />
+      <workItem from="1742188908045" duration="6770000" />
+      <workItem from="1742196349719" duration="5492000" />
+      <workItem from="1742207222286" duration="11796000" />
+      <workItem from="1742274923402" duration="668000" />
+      <workItem from="1742275839937" duration="9613000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/itu/evaluation/s6/service/UtilisateurDetailService.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

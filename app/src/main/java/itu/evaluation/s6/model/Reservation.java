@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -43,9 +43,13 @@ public class Reservation {
     @Column(name = "prix_espace")
     BigDecimal prixEspace;
 
-    @OneToMany()
-    @JoinColumn(name = "code_option")
-    List<Option> options;
+    @ManyToMany()
+    @JoinTable(
+            name = "option_reservation",
+            joinColumns = @JoinColumn(name = "reservation_id"),
+            inverseJoinColumns = @JoinColumn(name ="code_option")
+    )
+    Set<Option> options;
 
     @ManyToOne()
     @JoinColumn(name = "client_id")
