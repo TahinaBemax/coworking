@@ -34,8 +34,8 @@ public class Paiement {
     @Column(name = "ref_paiement")
     String refPaiement;
 
-    @Column(name = "validated_at")
-    LocalDateTime validatedAt;
+    @Column(name = "updated_at")
+    LocalDateTime updatedAt;
 
     @NotNull(message = "{champ.notNull}")
     @Column(name = "admin_username")
@@ -46,7 +46,7 @@ public class Paiement {
     @NotNull(message = "{champ.notNull}")
     Reservation reservation;
 
-    @Transient
+    @Column(name = "statut")
     @Enumerated(EnumType.STRING)
     PaiementStatut statutPaiement;
 }

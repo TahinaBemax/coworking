@@ -2,12 +2,11 @@ package itu.evaluation.s6.service;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-import itu.evaluation.s6.csv.csvdto.EspaceCSV;
-import itu.evaluation.s6.csv.csvdto.OptionCSV;
-import itu.evaluation.s6.csv.csvdto.ReservationCSV;
+import itu.evaluation.s6.csv.csvdto.*;
 import itu.evaluation.s6.csv.ImportCsvServiceDependence;
-import itu.evaluation.s6.csv.csvdto.ImportationCsvDto;
+import itu.evaluation.s6.enums.PaiementStatut;
 import itu.evaluation.s6.exception.ImportCsvException;
+import itu.evaluation.s6.exception.ReservationNotFoundException;
 import itu.evaluation.s6.exception.TableNameNotFoundException;
 import itu.evaluation.s6.model.*;
 import itu.evaluation.s6.repository.*;
@@ -16,6 +15,8 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -144,6 +145,37 @@ public class ImportCsvService {
         return reservations;
     }
 
+    private List<Paiement> preparePaiementData(MultipartFile file, String separator) throws IOException, ImportCsvException {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        List<Reservation> reservations = this.reservationRepository.findAll();
+        List<PaiementCSV> paiementCSV =  parseCSVFile(file, PaiementCSV.class, separator);
+        paiementCSV = this.validateDataCsv(paiementCSV);
+
+        List<Paiement> paiements = new ArrayList<>();
+
+        for (PaiementCSV paiement : paiementCSV) {
+            Paiement temporaire = new Paiement();
+
+            temporaire.setReservation(
+                    reservations.
+                            stream().filter(r -> r.getReference().equalsIgnoreCase(paiement.getRef()))
+                            .findFirst()
+                            .orElseThrow()
+            );
+
+            temporaire.setDatePaiement(paiement.getDatePaiement());
+            temporaire.setRefPaiement(paiement.getRef_paiement());
+            temporaire.setStatutPaiement(PaiementStatut.EN_ATTENTE);
+            BigDecimal montantPaye = temporaire.getReservation().getPrixEspace();
+            temporaire.setMontantPaye(montantPaye);
+            temporaire.setAdminUsername(authentication.getName());
+
+            paiements.add(temporaire);
+        }
+
+        return paiements;
+    }
+
 
     private List<Option> uploadOptionsData(MultipartFile file, String separator) throws IOException, ImportCsvException {
         List<Option> options = this.prepareOptionData(file, separator);
@@ -153,8 +185,9 @@ public class ImportCsvService {
         List<Espace> espaces = this.prepareEspaceData(file, separator);
         return this.espaceRepository.saveAll(espaces);
     }
-    private List<Paiement> uploadPaiementData(MultipartFile file, String separator) {
-        return null;
+    private List<Paiement> uploadPaiementData(MultipartFile file, String separator) throws ImportCsvException, IOException {
+        List<Paiement> Paiements = this.preparePaiementData(file, separator);
+        return this.paiementRepository.saveAll(Paiements);
     }
     private List<Reservation> uploadReservationData(MultipartFile file, String separator) throws ImportCsvException, IOException {
         List<Reservation> reservations = this.prepareReservationData(file, separator);

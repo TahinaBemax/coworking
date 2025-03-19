@@ -29,9 +29,8 @@ public class PaiementCSV {
     @UniqueValue(message = "La reference de paiement doit étre unique!")
     String ref_paiement;
 
-
     @CsvBindByName(column = "date")
     @NotNull(message = "{champ.notNull}")
     @CsvDate("dd/MM/yyyy")
-    LocalDate dateReservation;
+    LocalDate datePaiement;
 }
